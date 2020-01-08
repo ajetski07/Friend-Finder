@@ -20,6 +20,7 @@ app.use(bodyParser.raw({ type: "application/vnd.custom-type" }));
 
 app.use(bodyParser.text({ type: "text/html" }));
 
+require("./friend_app/routing/api-routes.js")(app);
 require("./friend_app/routing/html-routes.js")(app);
 
 app.listen(PORT, function(){
