@@ -7,13 +7,13 @@ var bodyParser = require("body-parser");
 var PORT = process.env.PORT || 3000;
 
 //Creating the application/JSON parser//
-var jsonParse = bodyParser.json();
+// var jsonParse = bodyParser.json();
 
 //Create application/x-www-form-urlencoded parser//
-var urlencodedParse = bodyParser.urlencoded({ extended: false});
+app.use(bodyParser.urlencoded({ extended: true}));
 
 //Parse out the different custom JSON types as JSON//
-app.use(bodyParser.json({ type: "application/8+json" }));
+app.use(bodyParser.json({ type: "application/*+json" }));
 
 //Parse a custom buffer//
 app.use(bodyParser.raw({ type: "application/vnd.custom-type" }));
