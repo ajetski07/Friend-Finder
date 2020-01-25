@@ -20,13 +20,13 @@ module.exports = function(app) {
 
         // Now we will make a loop to go through the friend possiblities based on the answers //
 
-        for (var f = 0; f < friends.length; f++); {
+        for (var f = 0; f < friends.length; f++) {
 
             console.log(friends[f].name);
             totalDiff = 0;
 
             // Looping through all the scores of the friends //
-            for (var s = 0; s < friends[f].scores[s]; f++) {
+            for (var s = 0; s < friends[f].scores[s]; s++) {
                 
                 // Calculating the difference between the scores to figure out the total difference //
                 totalDiff += Math.abs(parseInt(userScores[s])) - parseInt(friends[f].scores[s]);
