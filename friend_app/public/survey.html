@@ -136,6 +136,23 @@
 
             <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit</button>
 
+            <br>
+
+            <!-- Results Modal -->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modaltitle"><strong>Best Match</strong></h2>
+            </div>
+            <div class="modal-body">
+                <h2 id="matchName"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
             <hr>
 
     <footer class="footer">
@@ -143,22 +160,6 @@
             <p><a href="#">API Friends List</a> | <a href="https://github.com/ajetski07/Friend-Finder">Git Hub Repo</a></p>
         </div>
     </footer>
-
-    <!-- Results Modal -->
-
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modaltitle"><strong>Best Match</strong></h2>
-        </div>
-        <div class="modal-body">
-            <h2 id="matchName"></h2>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-
 
     <script>
 
@@ -207,8 +208,10 @@
 
                 $.post(currentURL + "/api/friends", userData, function(data) {
 
+                    // !!!For some reason my modal is staying open the entire time and not only when I hit the submit survey button!!! //
+
                     // Grabbing the results from the AJAX post so that the best matches name is displayed in the modal //
-                    $("matchName").test(data.name);
+                    $("#matchName").text(data.name);
                     
                     // Display the results modal with the best match from the friends array //
                     $("resultsModal").modal("toggle");
